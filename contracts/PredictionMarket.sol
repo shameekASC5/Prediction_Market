@@ -36,7 +36,7 @@ contract Predictionmarket {
         betsPerGambler[msg.sender][Team.TeamA] = 0;
         betsPerGambler[msg.sender][Team.TeamNotA] = 0;
         // send funds
-        (bool sent, bytes memory data) = payable(recipient).call{value: gain}("");
+        (bool sent, bytes memory data) = recipient.call{value: gain}("");
         require(sent, "Failed to send Ether");
     }
 
